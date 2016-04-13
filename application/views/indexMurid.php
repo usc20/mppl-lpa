@@ -7,7 +7,7 @@
     }
     else{
         //header("Location:../dashboard/index");
-        redirect("../mppl-lpa");
+        header("Location:../dashboard/index");
     }
 ?>
 <!DOCTYPE html>
@@ -114,7 +114,7 @@
 <!-- End Homepage Slider -->  
     
 <!-- Header -->
-<header>
+<header style="z-index: 100000">
     <div class="sticky-nav">
     	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
         
@@ -124,7 +124,7 @@
         
         <nav id="menu">
         	<ul id="menu-nav">
-                <li><a href="<?php echo base_url(); ?>\dashboard\logout">Keluar</a></li>
+                <li><a class="external" href="<?php echo base_url(); ?>dashboard/logout">Keluar</a></li>
             </ul>
         </nav>
         
