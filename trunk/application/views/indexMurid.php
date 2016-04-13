@@ -150,20 +150,21 @@
                         
 							<!-- Item Project and Filter Name -->
                         	<li class="item-thumbs span4 screenshot">
-                            	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="<?php echo base_url(); ?>assets/_include/img/work/full/image-01-full.jpg">
+                            	<!-- Fancybox - Gallery Enabled - Title - Full Image data-fancybox-group="gallery" -->
+                            	<a class="hover-wrap fancybox"  title="The City" href="<?php echo base_url(); ?>assets/_include/img/work/full/image-01-full.jpg">
                                 	<span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
                                 <img src="<?php echo base_url(); ?>assets/_include/img/work/thumbs/image-01.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                
                             </li>
                         	<!-- End Item Project -->
                             
 							<!-- Item Project and Filter Name -->
                         	<li class="item-thumbs span4 screenshot">
                             	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Office" href="<?php echo base_url(); ?>assets/_include/img/work/full/image-02-full.jpg">
+                            	<a class="hover-wrap fancybox" title="The Office" href="<?php echo base_url(); ?>assets/_include/img/work/full/image-02-full.jpg">
                                 	<span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
@@ -175,7 +176,7 @@
 							<!-- Item Project and Filter Name -->
                         	<li class="item-thumbs span4 screenshot">
                             	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="<?php echo base_url(); ?>assets/_include/img/work/full/image-03-full.jpg">
+                            	<a class="hover-wrap fancybox"  title="The Mountains" href="<?php echo base_url(); ?>assets/_include/img/work/full/image-03-full.jpg">
                                 	<span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
