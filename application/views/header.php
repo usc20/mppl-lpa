@@ -1,5 +1,7 @@
 <?php
 
+    error_reporting(E_ALL & ~E_WARNING);
+
     if($_SESSION['username']){
         //echo $_SESSION['username'];
 //        $id_guru = $_SESSION['userid'];
