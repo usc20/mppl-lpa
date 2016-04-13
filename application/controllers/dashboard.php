@@ -70,7 +70,7 @@ class Dashboard extends CI_Controller {
         $this->form_validation->set_rules('password_murid','Password','required|callback_verifyStudents');
         
         if($this->form_validation->run() == false){
-            $this->load->view('index.php');
+            redirect('dashboard');
         }
         else{
             redirect('dashboard/students');
@@ -82,7 +82,7 @@ class Dashboard extends CI_Controller {
         $this->form_validation->set_rules('password_guru','Password','required|callback_verifyTeacher');
         
         if($this->form_validation->run() == false){
-            $this->load->view('index.php');
+            redirect('dashboard');
             //echo "string";
         }
         else{
@@ -176,7 +176,7 @@ class Dashboard extends CI_Controller {
     public function logout(){
         $this->load->library('session');
         $this->load->view('logout');
-        $this->index();
+        redirect('dashboard');
     }
 
 }

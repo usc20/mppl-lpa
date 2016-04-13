@@ -6,8 +6,8 @@
         //echo $_SESSION['name'];
     }
     else{
-        //header("Location:../dashboard/index");
-        redirect("../mppl-lpa");
+        header("Location:../dashboard/index");
+        //redirect("../trunk");
     }
 ?>
 <!DOCTYPE html>
@@ -41,10 +41,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo base_url(); ?>\kelas"><i class="glyphicon glyphicon-th"></i> Daftar Kelas</a></li>
-            <li><a href="<?php echo base_url(); ?>\murid"><i class="glyphicon glyphicon-list"></i> Daftar Murid</a></li>
-            <li><a href="<?php echo base_url(); ?>\kelas\profil"><i class="glyphicon glyphicon-user"></i> Profil</a></li>
-            <li><a href="<?php echo base_url(); ?>\dashboard\logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+            <li><a href="<?php echo base_url(); ?>kelas"><i class="glyphicon glyphicon-th"></i> Daftar Kelas</a></li>
+            <li><a href="<?php echo base_url(); ?>murid"><i class="glyphicon glyphicon-list"></i> Daftar Murid</a></li>
+            <li><a href="<?php echo base_url(); ?>kelas\profil"><i class="glyphicon glyphicon-user"></i> Profil</a></li>
+            <li><a href="<?php echo base_url(); ?>dashboard\logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
