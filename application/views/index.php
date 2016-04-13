@@ -443,38 +443,33 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <ul class="nav nav-tabs" id="myTab">
-                    <li class="active" style="float: left; display: inline; text-align : center; width : 49%; margin-top: 22px;"><a href="#tab1" data-toggle="tab" >LOGIN MURID</a></li>
-                    <li style="float: left; display: inline; text-align : center; width : 49%;"><a href="#tab2" data-toggle="tab" >LOGIN GURU</a></li>
+                    <li class="active" style="float: left; display: inline; text-align : center; width : 49%; margin-top: 22px;"><a id="togglemurid" href="#tab1" data-toggle="tab" >LOGIN MURID</a></li>
+                    <li style="float: left; display: inline; text-align : center; width : 49%;"><a id="toggleguru" href="#tab2" data-toggle="tab" >LOGIN GURU</a></li>
                 </ul>
             </div>
             <div class="modal-body">
                 <div class="tab-content" style="background-color: white">
                     <div class="tab-pane fade in active" id="tab1">
-                        <form action="<?php echo base_url(); ?>dashboard/checkLoginStudents" method="POST" enctype="multipart/form-data">
+                        <form action="<?php echo base_url(); ?>dashboard/checkLoginStudents" name="loginmuridForm" id="loginmuridForm" method="POST" enctype="multipart/form-data">
                             Username:<br>
                                 <input type="text" name="username_murid" placeholder="Username"><br>
                             Password:<br>
                                 <input type="password" name="password_murid" placeholder="Password">
-                            <div class="form-group">
-                              <button class="btn btn-primary btn btn-block">OK</button>
-                            </div>
                         </form>  
                     </div>
                     <div class="tab-pane fade in" id="tab2">
-                        <form action="<?php echo base_url(); ?>dashboard/checkLoginTeacher" method="POST" enctype="multipart/form-data">
+                        <form action="<?php echo base_url(); ?>dashboard/checkLoginTeacher" name="loginguruForm" id="loginguruForm" method="POST" enctype="multipart/form-data">
                             Username:<br>
                                 <input type="text" name="username_guru" placeholder="Username"><br>
                             Password:<br>
                                 <input type="password" name="password_guru" placeholder="Password">
-                            <div class="form-group">
-                              <button class="btn btn-primary btn btn-block">OK</button>
-                            </div>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <a type="button" class="btn btn-default" href="kelas">OK</a>
+                <button id="muridForm" type="submit" class="btn btn-default" form="loginmuridForm" value="submitForm">OK</button>
+                <button id="guruForm" style="display: none" type="submit" class="btn btn-default" form="loginguruForm" value="submitForm">OK</button>
                 <!--<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>-->
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
@@ -498,7 +493,7 @@
             <div class="modal-body">
                 <div class="tab-content" style="background-color: white">
                     <div class="tab-pane fade in active" id="tab1">
-                        <form action="<?php echo base_url(); ?>dashboard/account" method="POST" enctype="multipart/form-data">
+                        <form action="<?php echo base_url(); ?>dashboard/account" method="POST" name="registerForm" id="registerForm" enctype="multipart/form-data">
                             <div style="float: left; width: 50%;">
                                 Nama:<br>
                                     <input type="text" name="nama" placeholder="Nama Lengkap"><br>
@@ -550,14 +545,12 @@
                                 Konfirmasi Password:<br>
                                     <input type="password" name="confirm_password" placeholder="Konfirmasi Password"><br>
                             </div>
-                            <div class="form-group">
-                              <button class="btn btn-primary btn btn-block">OK</button>
-                            </div>
                         </form>  
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="submit" class="btn btn-default" form="registerForm" value="submitForm">OK</button>
                 <!--<a type="button" class="btn btn-default">OK</a>-->
                 <!--<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>-->
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -582,6 +575,7 @@
 <script src="<?php echo base_url(); ?>assets/_include/js/jasny-bootstrap.js"></script> <!-- photo -->
 <script src="<?php echo base_url(); ?>assets/_include/js/plugins.js"></script> <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
 <script src="<?php echo base_url(); ?>assets/_include/js/main.js"></script> <!-- Default JS -->
+<script src="<?php echo base_url(); ?>assets/_include/js/script.js"></script> <!-- Default JS -->
 <!-- End Js -->
 
 </body>

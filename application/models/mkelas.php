@@ -7,11 +7,9 @@ class Mkelas extends CI_Model {
     function __construct() {
         parent::__construct();
     }
-	function get_allkelas() {
-        $this->db->from($this->tabel);
-		$query = $this->db->get();
-
-        //cek apakah ada ba
+	function get_allkelas($guru) {
+        $this->db->where('id_guru',$guru);  
+        $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $hasil = $query->result();
         }
