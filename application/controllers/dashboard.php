@@ -2,11 +2,6 @@
 
 class Dashboard extends CI_Controller {
 
-	/*****
-     | CRUD dashboard
-     | controller dashboard view, create, update, delete
-     | by g2tech
-	 */
     public function __construct() {
         parent::__construct();
         //$this->load->model('mkelas');
@@ -19,51 +14,6 @@ class Dashboard extends CI_Controller {
 		$this->load->view('index.php');
     }
 
-/*    public function form(){
-    	//ambil variabel URL
-		$mau_ke					= $this->uri->segment(3);
-		$idu					= $this->uri->segment(4);
-        //print $mau_ke;
-
-		//ambil variabel
-		$id     				= addslashes($this->input->post('id'));
-
-
-		if ($mau_ke == "add") {
-		    $data['title'] = 'Tambah barang';
-		    $data['aksi'] = 'aksi_add';
-            $this->load->view('header');
-            $this->load->view('vformkelas');
-		} else if ($mau_ke == "edit") {
-			$data['qdata']	= $this->mbarang->get_barang_byid($idu);
-			$data['title'] = 'Edit barang';
-		    $data['aksi'] = 'aksi_edit';
-            $this->load->view('header');
-            $this->load->view('vform');
-		} else if ($mau_ke == "aksi_add") {
-			$data = array(
-                'nama_murid'  => $nama
-            );
-            $this->mkelas->get_insert($data);
-			$this->session->set_flashdata("pesan", "<div class=\"alert alert-success\" id=\"alert\"><i class=\"glyphicon glyphicon-ok\"></i> Data berhasil di insert</div>");
-			redirect('barang');
-        } else if ($mau_ke == "aksi_edit") {
-          $data = array(
-                'nama_murid'  => $nama
-            );
-            $this->mkelas->get_update($id,$data);
-			$this->session->set_flashdata("pesan", "<div class=\"alert alert-success\" id=\"alert\"><i class=\"glyphicon glyphicon-ok\"></i> Data berhasil diupdate</div>");
-			redirect('kelas');
-		}
-
-    } */
-    // fungsi hapus
- /*   public function hapus($gid){
-
-        //$this->mkelas->del_kelas($gid);
-        $this->session->set_flashdata("pesan", "<div class=\"alert alert-danger\" id=\"alert\"><i class=\"glyphicon glyphicon-ok\"></i> Kelas berhasil dihapus</div>");
-        redirect('kelas');
-	} */
 
     public function checkLoginStudents() {
         $this->form_validation->set_rules('username_murid','Username','required');
@@ -180,6 +130,3 @@ class Dashboard extends CI_Controller {
     }
 
 }
-
-/* End of file barang.php */
-/* Location: ./application/controllers/barang.php */
