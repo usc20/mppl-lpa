@@ -3,6 +3,10 @@ class Mrelasi extends CI_Model {
 
     var $tabel_rkm = 'relation_kelas_murid';
     var $tabel_rgm = 'relation_guru_murid';
+    var $thistory = 'history';
+    var $tsoal = 'soal';
+    var $tmurid = 'murid';
+    
 
     function __construct() {
         parent::__construct();
@@ -33,6 +37,15 @@ class Mrelasi extends CI_Model {
         }
         return FALSE;
     }
+    
+    function get_history($murid){
+        $this->db->select('s.level, s.soal, s.jawaban, h.jawaban_murid, h.hasil_jawaban, h.waktu_mulai, h.waktu_selesai,m.nama_murid');
+        $this->db->from('soal s, history h, murid m');
+        $this->db->where('m.id_murid',$murid);
+        $this->db->where('m.id_murid = h.id_murid');
+        $this->db->where('s.id_soal = h.id_soal');
+    }
+        
 
 }
 ?>
