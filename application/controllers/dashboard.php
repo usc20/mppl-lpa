@@ -166,7 +166,7 @@ class Dashboard extends CI_Controller {
     }
 
     public function students() {
-        redirect('murid/index');        
+        $this->load->view('indexMurid.php');
     }
 
     public function teacher() {  
