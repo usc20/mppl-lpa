@@ -33,7 +33,7 @@ class dashboardModel extends CI_Model {
 	public function check_email_exist($email)
     {
         $this->db->where("email",$email);
-        $query=$this->db->get("users");
+        $query=$this->db->get("guru");
         if($query->num_rows()>0){
             return true;
         }else{

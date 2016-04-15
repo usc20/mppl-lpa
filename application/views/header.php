@@ -8,7 +8,7 @@
         //echo $_SESSION['name'];
     }
     else{
-        header("Location:../dashboard/index");
+        header("Location:../dashboard");
         //redirect("../trunk");
     }
 ?>

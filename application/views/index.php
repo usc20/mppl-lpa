@@ -86,6 +86,16 @@
 
 </head>
 
+<?php
+if(validation_errors()!=NULL){
+    echo'
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">×</button>';
+            echo validation_errors();
+    echo '
+    </div>';
+}
+?>
 
 <body>
 
@@ -495,8 +505,8 @@
                     <div class="tab-pane fade in active" id="tab1">
                         <form action="<?php echo base_url(); ?>dashboard/account" method="POST" name="registerForm" id="registerForm" enctype="multipart/form-data">
                             <div style="float: left; width: 50%;">
-                                Nama:<br>
-                                    <input type="text" name="nama" placeholder="Nama Lengkap"><br>
+                                Nama:<span class="verify" style="display:inline-block; width:8px; height:8px; z-index: 10000000 background-image: http://localhost/mppl-lpa/trunk/assets/_include/img/yes.png"</span><br>
+                                    <input type="text" name="nama" id="nama" placeholder="Nama Lengkap" value="<?php echo set_value('nama'); ?>" required><br>
                             </div>
                             <div class="fileinput fileinput-new text-center" data-provides="fileinput" style="float: right; width: 40%;">
                               <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 175px; height: 200px;"></div>
@@ -507,17 +517,17 @@
                             </div>
                             <div style="float: left; width: 50%;">
                                 NIP:<br>
-                                    <input type="text" name="nip" placeholder="Nomor Induk Pegawai"><br>
+                                    <input type="text" name="nip" placeholder="Nomor Induk Pegawai" required><br>
                             </div>
                                 <!--Asal Kota:
                                     <input type="text" name="">-->
                             <div style="float: left; width: 50%;">
                                 Tanggal Lahir:<br>
-                                    <input type="date" name="tgl_lahir" placeholder="Tanggal Lahir"><br>
+                                    <input type="date" name="tgl_lahir" placeholder="Tanggal Lahir" required><br>
                             </div>
                             <div style="float: left; width: 50%;">
                                 Jenis Kelamin:<br>
-                                    <select class="form-control" name="jenis_kelamin">
+                                    <select class="form-control" name="jenis_kelamin" required>
                                         <option value="">
                                             --
                                         </option>                                        
@@ -530,20 +540,20 @@
                                     </select>
                             </div>
                             <div style="float: left; width: 100%;">
-                                Email:<br>
-                                    <input type="text" name="email" placeholder="Email"><br>
+                                Email:<span id="email_verify" class="verify" style="display:inline-block; width:16px; height:16px;"></span><br>
+                                    <input type="text" name="email" id="email" placeholder="Email" value="<?php echo set_value('email'); ?>" required><br>
                             </div>                          
                             <div style="float: left; width: 100%;">
                                 Username:<br>
-                                    <input type="text" name="username" placeholder="Username"><br>
+                                    <input type="text" name="username" placeholder="Username" required><br>
                             </div>
                             <div style="float: left; width: 100%;">
-                                Password:<br>
-                                    <input type="password" name="password" placeholder="Password"><br>
+                                Password:<span id="password_verify" class="verify" style="display:inline-block; width:16px; height:16px;"></span><br>
+                                    <input type="password" name="password" id="password" placeholder="Password" value="<?php echo set_value('password'); ?>" required><br>
                             </div>
                             <div style="float: left; width: 100%;">
                                 Konfirmasi Password:<br>
-                                    <input type="password" name="confirm_password" placeholder="Konfirmasi Password"><br>
+                                    <input type="password" name="confirm_password" placeholder="Konfirmasi Password" value="<?php echo set_value('confirm_password'); ?>" required><br>
                             </div>
                         </form>  
                     </div>
@@ -576,6 +586,101 @@
 <script src="<?php echo base_url(); ?>assets/_include/js/plugins.js"></script> <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
 <script src="<?php echo base_url(); ?>assets/_include/js/main.js"></script> <!-- Default JS -->
 <script src="<?php echo base_url(); ?>assets/_include/js/script.js"></script> <!-- Default JS -->
+    
+<script type="text/javascript">
+$(document).ready(function(){
+		
+	$("#nama").blur(function(){
+        var username = $("#nama").val();
+        
+        if(($("#nama").val().length >=5)
+        {
+         
+            if(isValidFullname(nama))
+            {
+               $("#nama_verify").css({ "background-image": "url('<?php echo base_url();?>assets/_include/img/yes.png')" });
+               email_con=true;
+               //register_show();
+            } else {
+               
+                $("#nama_verify").css({ "background-image": "url('<?php echo base_url();?>assets/_include/img/no.png')" });
+            }
+ 
+        }
+        else {
+            $("#nama_verify").css({ "background-image": "url('<?php echo base_url();?>assets/_include/img/no.png')" });
+        }
+
+    });
+	$("#email").blur(function(){
+        var email = $("#email").val();
+        
+        if(email != 0)
+        {
+         
+            if(isValidEmailAddress(email))
+            {
+               $("#email_verify").css({ "background-image": "url('<?php echo base_url();?>assets/_include/img/yes.png')" });
+               email_con=true;
+               //register_show();
+            } else {
+               
+                $("#email_verify").css({ "background-image": "url('<?php echo base_url();?>assets/_include/img/no.png')" });
+            }
+ 
+        }
+        else {
+            $("#email_verify").css({ "background-image": "url('<?php echo base_url();?>assets/_include/img/no.png')" });
+        }
+
+    });
+	$("#password").blur(function(){
+        var password = $("#password").val();
+        
+        if($("#password").val().length >=6)
+        {
+         
+            if(isValidPassword(password))
+            {
+               $("#password_verify").css({ "background-image": "url('<?php echo base_url();?>assets/_include/img/yes.png')')" });
+               email_con=true;
+               //register_show();
+            } else {
+               
+                $("#password_verify").css({ "background-image": "url('<?php echo base_url();?>assets/_include/img/no.png')" });
+            }
+ 
+        }
+        else {
+            $("#password_verify").css({ "background-image": "url('<?php echo base_url();?>assets/_include/img/no.png')" });
+        }
+
+    });
+});
+
+function isValidFullname(fullname) {
+ 		var pattern = new RegExp(/^[a-zA-Z _-]{7,50}$/i);
+ 		return pattern.test(nama);
+	}
+function isValidUsername(username) {
+ 		var pattern = new RegExp(/^[a-zA-Z0-9_-]{4,10}$/i);
+ 		return pattern.test(username);
+	}
+function isValidPassword(password) {
+ 		var pattern = new RegExp(/^[a-z0-9_-]{6,32}$/i);
+ 		return pattern.test(password);
+	}
+function isValidEmailAddress(emailAddress) {
+ 		var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+ 		return pattern.test(emailAddress);
+	}
+</script>
+
+<script>
+$(document).ready(function(){
+    $(".alert").addClass("in").fadeOut(10000);
+});    
+</script>
 <!-- End Js -->
 
 </body>
